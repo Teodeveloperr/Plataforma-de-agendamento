@@ -186,7 +186,72 @@ const App: React.FC = () => {
     </div>
   );
 
-  // Added renderRegisterBusiness function to fix the error
+  const renderSuccessStories = () => (
+    <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 animate-in fade-in duration-700">
+      <div className="text-center mb-24">
+        <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-400 mb-6">Impacto Real</h2>
+        <h3 className="text-5xl font-bold text-zinc-900 tracking-tight mb-8">Empresas que escalaram <br/> <span className="text-zinc-400 text-4xl">com o AgendaMaster.</span></h3>
+        <p className="text-zinc-500 font-light max-w-2xl mx-auto text-lg leading-relaxed">
+          Histórias de empreendedores que automatizaram seus fluxos e focaram no que realmente importa: a experiência do cliente.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+        {[
+          {
+            name: "Marco Aurélio",
+            biz: "Cortes & Estilo",
+            metric: "+42% faturamento",
+            quote: "Antes do AgendaMaster, eu perdia 2 horas por dia respondendo WhatsApp. Hoje, minha agenda se preenche sozinha enquanto eu foco no corte.",
+            img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+          },
+          {
+            name: "Juliana Silva",
+            biz: "Pet Love Care",
+            metric: "-90% no-shows",
+            quote: "Os lembretes automáticos mudaram meu negócio. As faltas quase sumiram e meus clientes adoram a facilidade de agendar pelo celular.",
+            img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400"
+          },
+          {
+            name: "Dra. Helena",
+            biz: "Clínica Sorriso",
+            metric: "Expansão para 2 unidades",
+            quote: "A gestão centralizada me permitiu enxergar os horários de maior demanda e abrir minha segunda unidade com total segurança de dados.",
+            img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400"
+          },
+          {
+            name: "Ricardo Mendes",
+            biz: "Tech Fix",
+            metric: "Atendimento 24/7",
+            quote: "Mesmo dormindo, minha empresa está disponível para agendamentos. Comecei sozinho e hoje tenho uma equipe de 4 técnicos.",
+            img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400"
+          }
+        ].map((story, i) => (
+          <div key={i} className="flex flex-col md:flex-row bg-white rounded-[2.5rem] overflow-hidden premium-shadow border border-zinc-50 hover:border-zinc-200 transition-all duration-500">
+            <div className="w-full md:w-1/3 h-64 md:h-auto overflow-hidden">
+              <img src={story.img} className="w-full h-full object-cover grayscale" alt={story.name} />
+            </div>
+            <div className="p-10 md:w-2/3 flex flex-col justify-center">
+              <div className="mb-6">
+                <span className="text-[10px] font-black uppercase tracking-widest text-zinc-900 bg-zinc-50 px-3 py-1 rounded-full">{story.metric}</span>
+              </div>
+              <p className="text-zinc-600 text-lg font-light italic leading-relaxed mb-8">"{story.quote}"</p>
+              <div>
+                <h4 className="font-bold text-zinc-900">{story.name}</h4>
+                <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">{story.biz}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-32 p-16 bg-zinc-900 rounded-[3rem] text-center text-white">
+        <h3 className="text-3xl font-bold mb-6">Pronto para ser nosso próximo caso de sucesso?</h3>
+        <button onClick={() => setCurrentPage('register-business')} className="px-10 py-5 bg-white text-zinc-900 rounded-full font-bold text-sm hover:bg-zinc-100 transition-all">Começar agora</button>
+      </div>
+    </div>
+  );
+
   const renderRegisterBusiness = () => (
     <div className="max-w-2xl mx-auto py-24 px-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
       <div className="text-center mb-16">
@@ -399,6 +464,7 @@ const App: React.FC = () => {
         )}
         {currentPage === 'register-business' && renderRegisterBusiness()}
         {currentPage === 'resources' && renderResources()}
+        {currentPage === 'success-stories' && renderSuccessStories()}
         {currentPage === 'appointments' && (
            <div className="max-w-4xl mx-auto py-32 px-6 animate-in fade-in duration-500">
               <h2 className="text-4xl font-bold text-zinc-900 tracking-tight mb-16">Seus Compromissos</h2>

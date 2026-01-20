@@ -26,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-4 text-zinc-500 text-sm font-light">
               <li><button onClick={() => onNavigate('home')} className="hover:text-zinc-900 transition-colors">Corporativo</button></li>
               <li><button onClick={() => { onNavigate('home'); setTimeout(() => document.getElementById('pricing')?.scrollIntoView({behavior: 'smooth'}), 100); }} className="hover:text-zinc-900 transition-colors">Planos de Preço</button></li>
-              <li><button onClick={() => onNavigate('resources')} className="hover:text-zinc-900 transition-colors">Casos de Sucesso</button></li>
+              <li><button onClick={() => onNavigate('success-stories')} className="hover:text-zinc-900 transition-colors">Casos de Sucesso</button></li>
             </ul>
           </div>
           <div>
