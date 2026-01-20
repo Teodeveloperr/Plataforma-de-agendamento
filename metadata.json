@@ -1,0 +1,7 @@
+{
+  "name": "AgendaMaster - Platform for All Businesses",
+  "description": "A versatile scheduling platform where businesses can register for R$49.90/month and clients can easily find and book services.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
